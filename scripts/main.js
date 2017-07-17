@@ -9,80 +9,33 @@
    write your logic.
 */
 
-const cards = {
-	details: [
-		{
-			card: '2', // [0]
-			value: 2
-		},
-		{
-			card: '3', // [1]
-			value: 3
-		},
-		{
-			card: '4', // [2]
-			value: 4
-		},
-		{
-			card: '5', // [3]
-			value: 5
-		},
-		{
-			card: '6', // [4]
-			value: 6
-		},
-		{
-			card: '7', // [5]
-			value: 7
-		},
-		{
-			card: '8', // [6]
-			value: 8
-		},
-		{
-			card: '9', // [7]
-			value: 9
-		},
-		{
-			card: '10', // [9]
-			value: 10
-		},
-		{
-			card: 'J', // [9]
-			value: 10
-		},
-		{
-			card: 'Q', // [10]
-			value: 10
-		},
-		{
-			card: 'K', // [11]
-			value: 10
-		},
-		{
-			card: 'A', // [12]
-			value: [1, 11]
-		}
-	]
-};
-
+// const cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q', 'A']
 // test
 
 console.log('loaded JS');
-const hand = cards.details;
-console.log(`I have ${hand.length} cards`);
 
-// create function
+                      //array
+function handValue(hand) {
+  var sum = 0
+    for (var i = 0; i < hand.length; i++) {
+      if (hand[i] === 'J' || hand[i] === 'K' || hand[i] === 'Q' || hand[i] === '10') {
+        sum += 10
+      } else if (hand[i] === '2' || hand[i] === '3' || hand[i] === '4' || hand[i] === '5' ||
+       hand[i] === '6' || hand[i] === '7' || hand[i] === '8' || hand[i] === '9') {
+        sum += Number(hand[i])
+        //     ^ same as parseInt
+      } else if (hand[i] === 'A' && sum > 10) {
+        sum += 1
+      } else if (hand[i] === 'A' && sum < 11) {
+        sum += 11
+      }
 
-function handValue(blackJackHand) {
-
+  }
+  return sum
+}
 // iterate through array
 
-  for (let i = 0; i < hand.length; i++) {
-    
-  }
 
-}
 
 /* -----  Hints ------
 
